@@ -25,4 +25,5 @@ public class Model implements Serializable {
     public Map<Integer, User> getFromList() {
         return model;
     }
+
 }

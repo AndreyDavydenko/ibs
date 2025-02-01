@@ -20,7 +20,7 @@ public class MeServlet extends HttpServlet {
 
         // Hello
         PrintWriter out = response.getWriter();
-        out.println("Моя заглушка");
+        out.println("Локальный сервер успешно запущен");
     }
 
     public void destroy() {

@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import ru.appline.logic.Model;
 import ru.appline.logic.User;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -76,7 +77,7 @@ public class UserListServlet extends HttpServlet {
 //
 //    }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json; charset=utf-8");
 
         StringBuffer sb = new StringBuffer();
@@ -95,14 +96,10 @@ public class UserListServlet extends HttpServlet {
         int id = jobject.get("id").getAsInt();
 
         if (id == 0) {
-            out.println("Доступные пользователи:");
-            for (Map.Entry<Integer, User>entry : model.getFromList().entrySet()) {
-                out.print(entry.getKey()+
-                        " Имя: "+entry.getValue().getName()+
-                        " Фамилия: "+entry.getValue().getSurname()+
-                        " Зарплата: "+entry.getValue().getSalary());
+            out.println("Доступные пользователи:"+model.getUsersJson());
+
             }
-        }
+
 
         else if (id > 0) {
             if (id > model.getFromList().size()) {
@@ -110,9 +107,7 @@ public class UserListServlet extends HttpServlet {
             }
             else {
                 out.println("Пользователь:"+
-                        " Имя: "+model.getFromList().get(id).getName()+
-                        " Фамилия: "+model.getFromList().get(id).getSurname()+
-                        " Зарплата: "+model.getFromList().get(id).getSalary());
+                        model.getUserJson(id));
 
             }
         }

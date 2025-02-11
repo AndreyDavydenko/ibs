@@ -1,5 +1,6 @@
 package ru.appline.logic;
 
+
 public class User {
     public String name;
     public String surname;
@@ -9,7 +10,8 @@ public class User {
         this.name = name;
         this.surname = surname;
         this.salary = salary;
-    }
+
+        }
 
     public String getName() {
         return name;

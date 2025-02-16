@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @WebServlet(urlPatterns = "/add")
 public class AddUserServlet extends HttpServlet {
-    private AtomicInteger counter = new AtomicInteger(4);
+    private AtomicInteger counter = new AtomicInteger(5);
     Model model = Model.getInstance();
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
@@ -64,7 +64,7 @@ public class AddUserServlet extends HttpServlet {
         response.setContentType("application/json; charset=utf-8");
 
         PrintWriter out = response.getWriter();
-        out.print(gson.toJson(model.getFromList()));
+        out.print(model.getUsersJson());
     }
 
 

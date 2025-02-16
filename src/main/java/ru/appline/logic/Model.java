@@ -32,6 +32,8 @@ public class Model implements Serializable {
 
     public void deleteUser(int id) {model.remove(id); }
 
+    public void updateUser(User user, int id) {model.put(id, gson.toJson(user));}
+
     public Map<Integer, String> getFromList() {
         return model;
     }
